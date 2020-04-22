@@ -121,7 +121,7 @@ def main(slide_path, model_path, level, psize, bsize, factor, n_lass, save_name,
 
     visual = fast_wsi_pred(slide, net, level=level, psize=psize, blocksize=bsize, factor=factor, numclass=n_lass)
 
-    wsi_img, binary_tissue = extract_wsi_tissue(slide)
+    wsi_img, binary_tissue = extract_wsi_tissue(slide, filter_level=7)
     if filterFLAG:
         binary_tissue = cv2.resize(binary_tissue, visual.shape[::-1][:2], interpolation=cv2.INTER_NEAREST)
 
@@ -152,6 +152,6 @@ if __name__ == "__main__":
     factor = 8  # down-sampling factor of model you trained, Here we have 3 max-pooling with 2*2 kernel size in model.
 
     savename = '../results/FastWSI_Pred.npy'
-    # main(slidepth, modelpth, magnification, patch_size, block_size, factor, 2, savename,
-    #      channel=1, filterFLAG=False, showFLAG=False)
+    main(slidepth, modelpth, magnification, patch_size, block_size, factor, 2, savename,
+         channel=1, filterFLAG=False, showFLAG=True)
 
