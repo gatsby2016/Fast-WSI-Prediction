@@ -57,7 +57,7 @@ We show one WSI prediction probability map below
 			<td width="40%" align="center"> Predicted Prob. Maps </td>
 		</tr>
 		<tr>
-			<td width="40%" align="center"> <img src="github.com/gatsby2016/Fast-WSI-Prediction/blob/master/results/wsi.png"> </td>
+			<td width="40%" align="center"> <img src="https://github.com/gatsby2016/Fast-WSI-Prediction/blob/master/results/wsi.png"> </td>
 			<td width="40%" align="center"> <img src="https://github.com/gatsby2016/Fast-WSI-Prediction/blob/master/results/FastWSI_Pred.png"> </td>
 		</tr>
 	</tbody>
