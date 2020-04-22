@@ -1,0 +1,18 @@
+{
+  "epoches": 100,
+  "batch_size": 1000,
+  "initLR": 0.003,
+  "weights": null,
+  "trainpath": "../data/train.txt",
+  "validpath": "../data/val.txt",
+  "restore": "",
+  "savename": "../models/FastWSI_vgg_epoch_",
+  "net": "myVGG",
+  "loss": "CrossEntropyLoss",
+  "nWorker": 8,
+  "momentum": 0.9,
+  "decay": 1e-05,
+  "nCls": 2,
+  "seed": 3,
+  "gpu": "0"
+}
