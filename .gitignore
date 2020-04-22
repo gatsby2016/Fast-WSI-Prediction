@@ -2,5 +2,8 @@
 __pycache__
 data/IDCall
 models
-
+*.ndpi
+*.mat
+*.npz
+*.npy
 *.pyc

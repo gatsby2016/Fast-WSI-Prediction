@@ -15,7 +15,7 @@ class VGG(nn.Module):
                 in_channels = v
         self.features = nn.Sequential(*layers)
 
-        self.avgpool = nn.AvgPool2d(kernel_size=2, stride=1)
+        self.avgpool = nn.AvgPool2d(kernel_size=2, stride=2)
 
         self.classifier = nn.Sequential(
             nn.Conv2d(out_channel, out_channel, kernel_size=1, stride=1),
