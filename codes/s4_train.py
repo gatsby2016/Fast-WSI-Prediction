@@ -90,8 +90,8 @@ def main(args):
         myTransforms.Normalize(normMean, normStd)
     ])
     valpreprocess = myTransforms.Compose([myTransforms.Resize((50,50)),
-                                       myTransforms.ToTensor(),
-                                       myTransforms.Normalize(normMean,normStd)])
+                                          myTransforms.ToTensor(),
+                                          myTransforms.Normalize(normMean,normStd)])
 
     print('####################Loading dataset...')
     trainset = SCdataset(args.trainpath, preprocess)
