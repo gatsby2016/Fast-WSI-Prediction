@@ -1,11 +1,8 @@
 {
-  "epoches": 100,
+  "epoches": 200,
   "batch_size": 1000,
-  "initLR": 0.003,
-  "weights": [
-    0.4,
-    0.6
-  ],
+  "initLR": 0.005,
+  "weights": null,
   "trainpath": "../data/train.txt",
   "validpath": "../data/val.txt",
   "restore": "",
