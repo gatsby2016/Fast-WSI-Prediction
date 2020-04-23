@@ -63,13 +63,11 @@ We shows the curves of training loss and validation accuracy, see below:
 </table>
 
 ### Independent testing evaluation on Patch-level 
-|==========|===========|===========|==========|
-|Confusion |  predict  |           |          |
-|Matrics   |  Postive  |  Negtive  |          | 
-|==========|===========|===========|==========| 
+|Confusion matrics |  predict  |           |          |
+|----------|-----------|-----------|----------|         
+|          |  Postive  |  Negtive  |          |
 |  Postive |  11041    |  3187     |  =  14228|
 |  Negtive |  3391     |  38901    |  =  42292|
-|==========|===========|===========|==========|
    
 - Accuracy :  0.8836
 - Specificity :  0.9198
