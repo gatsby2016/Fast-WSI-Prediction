@@ -25,10 +25,10 @@ from myUtils import NetPrediction, EvalMetrics
 
 def GetArgs():
     parser = argparse.ArgumentParser()
-    parser.add_argument('-E', '--epoches', default=100, type=int, required=False, help='Epoch, default is 100.')
+    parser.add_argument('-E', '--epoches', default=200, type=int, required=False, help='Epoch, default is 200.')
     parser.add_argument('-B', '--batch_size', default=1000, type=int, required=False, help='batch size, default is 1000.')
-    parser.add_argument('-LR', '--initLR', default=0.003, type=float, required=False, help='init lr, default is 0.003.')
-    parser.add_argument('-Wg', '--weights', default=[0.4,0.6], type=list, required=False, help='weights for CEloss.')
+    parser.add_argument('-LR', '--initLR', default=0.005, type=float, required=False, help='init lr, default is 0.005.')
+    parser.add_argument('-Wg', '--weights', default=None, type=list, required=False, help='weights for CEloss.')
     #weights for loss; or weights = None
 
     parser.add_argument('-trainpath', '--trainpath', default='../data/train.txt', type=str,
@@ -82,18 +82,21 @@ def main(args):
                                    myTransforms.RandomVerticalFlip(p=1),
                                    myTransforms.AutoRandomRotation()]),  # above is for: randomly selecting one for process
         # myTransforms.RandomAffine(degrees=[-180, 180], translate=[0., 1.], scale=[0., 2.], shear=[-180, 180, -180, 180]),
-        myTransforms.ColorJitter(brightness=(0.65, 1.35), contrast=(0.7, 1.3)),
-        myTransforms.RandomChoice([myTransforms.ColorJitter(saturation=(0.7, 1.3), hue=0.3),
-                                   myTransforms.HEDJitter(theta=0.03)]),
+        myTransforms.ColorJitter(brightness=(0.8, 1.2), contrast=(0.8, 1.2)),
+        myTransforms.RandomChoice([myTransforms.ColorJitter(saturation=(0.8, 1.2), hue=0.2),
+                                   myTransforms.HEDJitter(theta=0.02)]),
         myTransforms.RandomElastic(alpha=2, sigma=0.06),
         myTransforms.ToTensor(),  #operated on original image, rewrite on previous transform.
         myTransforms.Normalize(normMean, normStd)
     ])
+    valpreprocess = myTransforms.Compose([myTransforms.Resize((50,50)),
+                                       myTransforms.ToTensor(),
+                                       myTransforms.Normalize(normMean,normStd)])
 
     print('####################Loading dataset...')
     trainset = SCdataset(args.trainpath, preprocess)
     trainloader = DataLoader(trainset, batch_size=args.batch_size, shuffle=True, num_workers=args.nWorker)
-    valset = SCdataset(args.validpath, preprocess)
+    valset = SCdataset(args.validpath, valpreprocess)
     valloader = DataLoader(valset, batch_size=args.batch_size, shuffle=False, num_workers=args.nWorker)
 
     net = getattr(myModelVgg, args.net)(in_channels=3, num_classes=args.nCls)
