@@ -48,6 +48,36 @@ Also, we modify the `VGG` network due to our small training size, **and**, we **
 
 
 ## Result
+### When training
+We shows the curves of training loss and validation accuracy, see below:
+<table border=0 width="30px" >
+	<tbody> 
+    <tr>		<td width="30%" align="center"> Training loss curve </td>
+			<td width="30%" align="center"> Validation accuracy </td>
+		</tr>
+		<tr>
+			<td width="30%" align="center"> <img src="https://github.com/gatsby2016/Fast-WSI-Prediction/blob/master/results/s7_plotMetrics_Loss.png"> </td>
+			<td width="30%" align="center"> <img src="https://github.com/gatsby2016/Fast-WSI-Prediction/blob/master/results/s7_plotMetrics_Accuracy.png"> </td>
+		</tr>
+	</tbody>
+</table>
+
+### Independent testing evaluation on Patch-level 
+|==========|===========|===========|==========|
+|Confusion |  predict  |           |          |
+|Matrics   |  Postive  |  Negtive  |          | 
+|==========|===========|===========|==========| 
+|  Postive |  11041    |  3187     |  =  14228|
+|  Negtive |  3391     |  38901    |  =  42292|
+|==========|===========|===========|==========|
+   
+- Accuracy :  0.8836
+- Specificity :  0.9198
+- Recall :  0.7760
+- Precision :  0.7650
+- F1Score :  0.7705
+
+### 
 The valuable thing is that we achieve **a fast WSI prediction method**, not improve accuracy or performance.  
 We show one WSI prediction probability map below  
  **it only takes about 4s!**  
