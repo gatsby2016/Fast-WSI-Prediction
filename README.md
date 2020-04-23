@@ -62,10 +62,9 @@ We shows the curves of training loss and validation accuracy, see below:
 	</tbody>
 </table>
 
-### Independent testing evaluation on Patch-level 
-|Confusion matrics |  predict  |           |          |
+### Independent testing evaluation (patch-level)  
+|Confusion matrics |  Postive pred  | Negtive pred  |          |
 |----------|-----------|-----------|----------|         
-|          |  Postive  |  Negtive  |          |
 |  Postive |  11041    |  3187     |  =  14228|
 |  Negtive |  3391     |  38901    |  =  42292|
    
@@ -75,7 +74,8 @@ We shows the curves of training loss and validation accuracy, see below:
 - Precision :  0.7650
 - F1Score :  0.7705
 
-### 
+
+### WSI probability map prediction (slide-level)  
 The valuable thing is that we achieve **a fast WSI prediction method**, not improve accuracy or performance.  
 We show one WSI prediction probability map below  
  **it only takes about 4s!**  
