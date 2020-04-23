@@ -18,10 +18,10 @@ from myUtils import NetPrediction, EvalMetrics
 
 def GetArgs():
     parser = argparse.ArgumentParser()
-    parser.add_argument('-B', '--batch_size', default=10, type=int, required=False, help='batch size, default is 1000.')
+    parser.add_argument('-B', '--batch_size', default=2000, type=int, required=False, help='batch size, default is 2000.')
     parser.add_argument('-testpath', '--testpath', default='../data/test.txt', type=str,
                         required=False, help='valpath, default is test.txt.')
-    parser.add_argument('-restore', '--restore', default='../models/FastWSI_vgg_epoch_6.pkl', type=str, required=False,
+    parser.add_argument('-restore', '--restore', default='../models/FastWSI_vgg_epoch_189.pkl', type=str, required=False,
                         help='Model path restoring for testing, if none, just \'\', no default.')
     parser.add_argument('-sn', '--savename', default='../results/test_pred_score.npz', type=str, required=False,
                         help='savename for model saving, default is ../results/test_pred_score.npz.')
