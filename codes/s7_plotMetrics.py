@@ -17,11 +17,11 @@ print('Load log file success!')
 # pattern = re.compile('\*\*\*\*\*\*\*\*_Loss_\*\*\*\*\*\*\*\* \d*.\d*')
 accpattern = re.compile('Accuracy :  \d*\.\d\d\d\d')
 acc = [float(one.split(' ')[-1]) for one in accpattern.findall(content)]
-
+#acc = acc[0::2]
 plt.figure(figsize=(10, 5))
-plt.plot(range(1,len(acc)+1), acc, 'r-*', lw=2)
+plt.plot(range(1,len(acc)+1), acc, 'r-', lw=2)
 plt.xlim([1, len(acc)])
-plt.ylim([0, 1.0])
+plt.ylim([0.75, 1.0])
 plt.xlabel('Epoches')
 plt.ylabel('Accuracy values on validation dataset')
 # plt.title('Accuracy values range in Epoches for Altered / No altered')
@@ -35,9 +35,9 @@ losspattern = re.compile('Avgloss\d*\.\d\d\d\d')
 loss = [float(one.split('s')[-1]) for one in losspattern.findall(content)]
 
 plt.figure(figsize=(10, 5))
-plt.plot(range(1,len(loss)+1), loss, 'b-.', lw=1)
+plt.plot(range(1,len(loss)+1), loss, 'b-.', lw=2)
 plt.xlim([1, len(loss)])
-plt.ylim([0, max(loss)])
+plt.ylim([min(loss), max(loss)])
 plt.xlabel('Epoches')
 plt.ylabel('Loss values range on training dataset')
 # plt.title('Loss & Accuracy values range in Epoches for Altered / No altered')
