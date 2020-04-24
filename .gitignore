@@ -1,7 +1,7 @@
 .idea
 __pycache__
 data/IDCall
-models
+
 *.ndpi
 *.mat
 *.npz
