@@ -30,7 +30,7 @@ def extract_wsi_tissue(slide, filter_level=9):
     """
     width, height = slide.level_dimensions[filter_level]
     low_wsi = slide.read_region((0, 0), level=filter_level, size=(width, height))
-    low_wsi = np.transpose(np.array(low_wsi)[:, :, 0:3], [1, 0, 2]) # get rgb from rgba and transpose
+    low_wsi = np.array(low_wsi)[:, :, 0:3]  # get rgb from rgba and transpose
     low_wsi[low_wsi == 0] = 255 # fill the zero region to 255
     gray = cv2.cvtColor(low_wsi[..., [2, 1, 0]], cv2.COLOR_BGR2GRAY) # rgb2bgr then gray
     value, thresh = cv2.threshold(gray, 0, 1, cv2.THRESH_OTSU)
@@ -129,7 +129,7 @@ def main(slide_path, model_path, level, psize, bsize, factor, n_lass, save_name,
         binary_tissue = ~(binary_tissue*255)//255  # set value 0 for non-tissue and value 1 for tissue region
         visual = visual * binary_tissue + background
 
-    visual = np.transpose(visual, [1, 2, 0])
+    visual = np.transpose(visual, [2, 1, 0])
 
     if showFLAG:
         plt.imshow(wsi_img, cmap='jet')
@@ -144,9 +144,10 @@ def main(slide_path, model_path, level, psize, bsize, factor, n_lass, save_name,
 
 
 if __name__ == "__main__":
+#    slidepth = '/mnt/WorkStation/Data/Breast/Histology/Her2_2016/Dataset/Training/HE/4_HE.ndpi'
     slidepth = '../data/4_201647135_3.ndpi'
-    modelpth = '../models/FastWSI_vgg_epoch_95.pkl'
-    magnification = 4  # the magnification of trained patch. 0,1,2,3... denotes 40x, 20x, 10x, 5x ...
+    modelpth = '../models/FastWSI_vgg_bestVal.pkl'
+    magnification = 3  # the magnification of trained patch. 0,1,2,3... denotes 40x, 20x, 10x, 5x ...
     patch_size = 50  # patch size of training sample, here we trained on patch shape: 50*50*3
     block_size = 2048+2  # block size of testing ROI by fast-WSI-prediction method.
     factor = 8  # down-sampling factor of model you trained, Here we have 3 max-pooling with 2*2 kernel size in model.
