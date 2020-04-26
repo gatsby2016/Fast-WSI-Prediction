@@ -3,7 +3,7 @@
 
 
 ## Aim: undergraduate course  
-**Invasive Ductal Carcinoma (IDC) detection** on Whole Slide Image (WSI) by deep learning method eqipped with **[ScanNet](https://ieeexplore.ieee.org/abstract/document/8354169/) fully conv. scheme** for fast WSI prediction.  
+**Invasive Ductal Carcinoma (IDC) detection** on Whole Slide Image (WSI) by deep learning method equipped with **[ScanNet](https://ieeexplore.ieee.org/abstract/document/8354169/) fully conv. scheme** for fast WSI prediction.  
 
   
 ## Data  
