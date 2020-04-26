@@ -24,7 +24,7 @@ Tiling small patch with 50\*50 at 2.5x magnification for `non-IDC` and `IDC` cla
 2. Train the `VGG_fullyConv` model for classification, same as original training process  
 3. Check the performance on `Validation` dataset and select the best model in terms of F1 score  
 4. Test and evaluate your trained `VGG_fullyConv` model on `Testing` dataset in *patch-level*   
-5. Infer and predict the probability map for one WSI and show it!  
+5. Input the block with bigger size, Infer and predict the probability map for one WSI and show it!  
 
 ### HotSpot  
 > We significantly improve the inferring time by the [ScanNet](https://ieeexplore.ieee.org/abstract/document/8354169) scheme.  
