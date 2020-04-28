@@ -42,6 +42,17 @@ self.classifier = nn.Sequential(
 ```   
 
 Also, we modify the `VGG` network due to our small training size, **and**, we **remove padding operation** in convolutional layer to avoid the *border effect arcoss testing blocks*. You can refer to [myModelVgg.py](https://github.com/gatsby2016/Fast-WSI-Prediction/blob/master/codes/myModelVgg.py) for more details.  
+The overall network structure for our architecture is shown:   
+<table border=0 width="50px" >
+	<tbody> 
+    <tr>		<td width="40%" align="center"> Our overall network structure </td>
+		</tr>
+		<tr>
+			<td width="40%" align="center"> <img src="https://github.com/gatsby2016/Fast-WSI-Prediction/blob/master/results/network.png"> </td>
+		</tr>
+	</tbody>
+</table>
+
 
 
 **Noting:** The core part for **Fast WSI** is the step of sliding window of testing block. You can refer to [s6_predWSI.py](https://github.com/gatsby2016/Fast-WSI-Prediction/blob/master/codes/s6_predWSI.py) for details in function `fast_wsi_pred()`  
@@ -77,7 +88,7 @@ We shows the curves of training loss and validation accuracy, see below:
 
 ### WSI probability map prediction (slide-level)  
 The valuable thing is that we achieve **a fast WSI prediction method**, not accuracy or performance improvement.  
-We show one WSI prediction probability map below  
+We show one WSI prediction probability map below, the size of the original WSI is 13440\*10560, and the size of the output prediction map is 834\*654.   
  **it only takes about 4s!**  
 <table border=0 width="50px" >
 	<tbody> 
