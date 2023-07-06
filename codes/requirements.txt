@@ -1,6 +1,6 @@
 torch==1.4.0
 tqdm==4.45.0
-scipy==1.4.1
+scipy==1.10.0
 scikit_image==0.16.2
 openslide_python==1.1.1
 matplotlib==3.2.1
